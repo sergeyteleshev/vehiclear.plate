@@ -56,7 +56,7 @@ def get_number_by_photo_url(url):
     optionsDetector.load("latest")
 
     # Initialize text detector.
-    textDetector = TextDetector.get_static_module("eu")()
+    textDetector = TextDetector.get_static_module("ru")()
     textDetector.load("latest")
 
     # Detect numberplate
@@ -80,7 +80,7 @@ def get_number_by_photo_url(url):
     # find text with postprocessing by standart
     textArr = textDetector.predict(zones)
     textArr = textPostprocessing(textArr, regionNames)
-    return textArr
+    return textArr[0]
 
 
 def download_image(url):
